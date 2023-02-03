@@ -1,0 +1,227 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "VisualEditor0",
+      "Effect": "Allow",
+      "Action": [
+        "lambda:CreateFunction",
+        "lambda:ListVersionsByFunction",
+        "logs:DescribeLogStreams",
+        "events:PutRule",
+        "logs:DescribeSubscriptionFilters",
+        "lambda:GetFunctionConfiguration",
+        "logs:DeleteLogStream",
+        "apigateway:DELETE",
+        "logs:CreateLogStream",
+        "iam:PassRole",
+        "apigateway:PATCH",
+        "cloudformation:UpdateStack",
+        "events:RemoveTargets",
+        "lambda:DeleteFunction",
+        "logs:FilterLogEvents",
+        "apigateway:GET",
+        "events:DescribeRule",
+        "apigateway:PUT",
+        "logs:DeleteLogGroup",
+        "lambda:InvokeFunction",
+        "lambda:GetFunction",
+        "lambda:UpdateFunctionConfiguration",
+        "logs:TagResource",
+        "logs:CreateLogGroup",
+        "lambda:UpdateAlias",
+        "events:PutTargets",
+        "events:DeleteRule",
+        "lambda:UpdateFunctionCode",
+        "lambda:AddPermission",
+        "cloudformation:CreateStack",
+        "lambda:DeleteAlias",
+        "lambda:PublishVersion",
+        "apigateway:POST",
+        "logs:PutSubscriptionFilter",
+        "lambda:RemovePermission",
+        "cloudformation:Get*",
+        "lambda:CreateAlias",
+        "lambda:TagResource",
+        "lambda:ListTags",
+        "lambda:DeleteEventSourceMapping"
+      ],
+      "Resource": [
+        "arn:aws:events:<REGION>:<ACCOUNT_ID>:rule/<PROJECT>-<STAGE>*",
+        "arn:aws:apigateway:<REGION>::*",
+        "arn:aws:logs:<REGION>:<ACCOUNT_ID>:log-group:/aws/lambda/<PROJECT>-<STAGE>*:log-stream:*",
+        "arn:aws:logs:<REGION>:<ACCOUNT_ID>:log-group:/aws/http-api/<PROJECT>-<STAGE>:log-stream:*",
+        "arn:aws:cloudformation:<REGION>:<ACCOUNT_ID>:stack/<PROJECT>-<STAGE>/*",
+        "arn:aws:lambda:*:<ACCOUNT_ID>:function:<PROJECT>-<STAGE>*",
+        "arn:aws:iam::<ACCOUNT_ID>:role/<APPLICATION>-lambda",
+        "arn:aws:iam::<ACCOUNT_ID>:role/<PROJECT>-<STAGE>-<REGION>-lambdaRole",
+        "arn:aws:lambda:*:,<ACCOUNT_ID>,:event-source-mapping:*"
+      ]
+    },
+    {
+      "Sid": "VisualEditor1",
+      "Effect": "Allow",
+      "Action": [
+        "apigateway:DELETE",
+        "apigateway:PUT",
+        "apigateway:PATCH",
+        "logs:*",
+        "iam:CreateRole",
+        "iam:DeleteRole",
+        "iam:DeleteRolePolicy",
+        "apigateway:POST",
+        "apigateway:GET"
+      ],
+      "Resource": [
+        "arn:aws:apigateway:<REGION>::*",
+        "arn:aws:iam::<ACCOUNT_ID>:role/<PROJECT>-<STAGE>-EnterpriseLogAccessIamRole*",
+        "arn:aws:logs:<REGION>:<ACCOUNT_ID>:log-group::log-stream:*"
+      ]
+    },
+    {
+      "Sid": "VisualEditor2",
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:CreateStack",
+        "cloudformation:UpdateStack",
+        "cloudformation:Get*"
+      ],
+      "Resource": [
+        "arn:aws:logs:<REGION>:<ACCOUNT_ID>:log-group::log-stream:*",
+        "arn:aws:iam::<ACCOUNT_ID>:role/<APPLICATION>-lambda",
+        "arn:aws:events:<REGION>:<ACCOUNT_ID>:rule/<PROJECT>-<STAGE>*",
+        "arn:aws:sqs:<REGION>:<ACCOUNT_ID>:<PROJECT>*",
+        "arn:aws:lambda:*:<ACCOUNT_ID>:function:<PROJECT>-<STAGE>*",
+        "arn:aws:apigateway:<REGION>::*",
+        "arn:aws:cloudformation:<REGION>:<ACCOUNT_ID>:stack/<PROJECT>-<STAGE>/*"
+      ]
+    },
+    {
+      "Sid": "VisualEditor3",
+      "Effect": "Allow",
+      "Action": [
+        "logs:GetLogRecord",
+        "s3:CreateBucket",
+        "logs:GetLogDelivery",
+        "logs:ListLogDeliveries",
+        "logs:DeleteResourcePolicy",
+        "logs:CancelExportTask",
+        "logs:DeleteLogDelivery",
+        "logs:DescribeQueryDefinitions",
+        "logs:DescribeResourcePolicies",
+        "logs:DescribeDestinations",
+        "logs:DescribeQueries",
+        "sqs:ListQueues",
+        "logs:StopQuery",
+        "logs:TestMetricFilter",
+        "logs:DeleteQueryDefinition",
+        "logs:PutQueryDefinition",
+        "cloudformation:Describe*",
+        "logs:Link",
+        "logs:CreateLogDelivery",
+        "logs:PutResourcePolicy",
+        "logs:DescribeExportTasks",
+        "logs:GetQueryResults",
+        "s3:ListAllMyBuckets",
+        "logs:UpdateLogDelivery",
+        "cloudformation:ValidateTemplate",
+        "lambda:CreateEventSourceMapping",
+        "lambda:GetEventSourceMapping"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "VisualEditor4",
+      "Effect": "Allow",
+      "Action": "apigateway:TagResource",
+      "Resource": "arn:aws:apigateway:<REGION>::*"
+    },
+    {
+      "Sid": "VisualEditor5",
+      "Effect": "Allow",
+      "Action": "apigateway:TagResource",
+      "Resource": "arn:aws:apigateway:<REGION>::*"
+    },
+    {
+      "Sid": "VisualEditor6",
+      "Effect": "Allow",
+      "Action": "sqs:*",
+      "Resource": "arn:aws:sqs:<REGION>:<ACCOUNT_ID>:<PROJECT>*"
+    },
+    {
+      "Sid": "VisualEditor7",
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:CreateStack",
+        "cloudformation:UpdateStack",
+        "cloudformation:Get*"
+      ],
+      "Resource": [
+        "arn:aws:logs:<REGION>:<ACCOUNT_ID>:log-group::log-stream:*",
+        "arn:aws:iam::<ACCOUNT_ID>:role/<APPLICATION>-lambda",
+        "arn:aws:events:<REGION>:<ACCOUNT_ID>:rule/<PROJECT>-<STAGE>*",
+        "arn:aws:sqs:<REGION>:<ACCOUNT_ID>:<PROJECT>*",
+        "arn:aws:lambda:*:<ACCOUNT_ID>:function:<PROJECT>-<STAGE>*",
+        "arn:aws:cloudformation:<REGION>:<ACCOUNT_ID>:stack/<PROJECT>-<STAGE>/*",
+        "arn:aws:apigateway:<REGION>::*"
+      ]
+    },
+    {
+      "Sid": "VisualEditor8",
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:PreviewStackUpdate",
+        "cloudformation:List*",
+        "cloudformation:Describe*"
+      ],
+      "Resource": "arn:aws:cloudformation:<REGION>:<ACCOUNT_ID>:stack/<PROJECT>-<STAGE>/*"
+    },
+    {
+      "Sid": "VisualEditor9",
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:PreviewStackUpdate",
+        "cloudformation:List*"
+      ],
+      "Resource": "arn:aws:cloudformation:<REGION>:<ACCOUNT_ID>:stack/<PROJECT>-<STAGE>/*"
+    },
+    {
+      "Sid": "VisualEditor10",
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:PreviewStackUpdate",
+        "cloudformation:List*"
+      ],
+      "Resource": "arn:aws:cloudformation:<REGION>:<ACCOUNT_ID>:stack/<PROJECT>-<STAGE>/*"
+    },
+    {
+      "Sid": "VisualEditor11",
+      "Effect": "Allow",
+      "Action": [
+        "cloudformation:PreviewStackUpdate",
+        "cloudformation:CreateStack",
+        "cloudformation:UpdateStack",
+        "cloudformation:List*",
+        "cloudformation:Get*"
+      ],
+      "Resource": "arn:aws:cloudformation:<REGION>:<ACCOUNT_ID>:stack/<PROJECT>-<STAGE>/*"
+    },
+    {
+      "Sid": "VisualEditor12",
+      "Effect": "Allow",
+      "Action": "s3:*",
+      "Resource": [
+        "arn:aws:s3:::<PROJECT>-<STAGE>*/",
+        "arn:aws:s3:::<PROJECT>-<STAGE>*"
+      ]
+    },
+    {
+      "Sid": "VisualEditor13",
+      "Effect": "Allow",
+      "Action": ["iam:GetRole","iam:CreateRole", "iam:PutRolePolicy"],
+      "Resource": [
+        "arn:aws:iam::<ACCOUNT_ID>:role/<PROJECT>-<STAGE>"
+      ]
+    }
+  ]
+}
