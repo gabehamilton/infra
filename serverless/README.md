@@ -28,8 +28,6 @@ In your `serverless.yml` file in the `provider` section set the cloudformation r
 The PROJECT-cloudformation.json policy has permission to create Lambdas, API Gateway, and **SQS**. 
 You can remove SQS if you don't need it. Permissions for other resources in your stack will need to be added.
 
-The PROJECT-cloudformation-ALT.json is the more human organized form of that policy file but could be missing a permission or two.
-
 ### Deployment
 Add credentials to your `~/.aws/credentials` file under a profile for the deployment user and set 
 the `AWS_PROFILE` environment variable to the name of the profile you created or invoke it with the `--aws-profile` option.
